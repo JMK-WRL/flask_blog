@@ -1,12 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Welcome to FlaskBlog {% endblock %}</h1>
+    <!-- Block content starts here -->
+    <h1>
+        {% block title %}
+            Welcome to FlaskBlog  <!-- Default title if not overridden -->
+        {% endblock %}
+    </h1>
+
+    <!-- Loop through the list of posts and display their titles -->
     {% for post in posts %}
+        <!-- Create a hyperlink to view the full post -->
         <a href="{{ url_for('post', post_id=post['id']) }}">
-            <h2>{{ post['title'] }}</h2>
+            <h2>{{ post['title'] }}</h2>  <!-- Display the title of each post -->
         </a>
+        
+        <!-- Display a badge with a primary color for the post's creation date -->
         <span class="badge badge-primary">{{ post['created'] }}</span>
+
+        <!-- Create a horizontal line as a separator between posts -->
         <hr>
     {% endfor %}
+    <!-- Block content ends here -->
 {% endblock %}

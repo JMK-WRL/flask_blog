@@ -1,23 +1,34 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{% block title %} Create a New Post {% endblock %}</h1>
+    <!-- Block content starts here -->
+    <h1>
+        {% block title %}
+            Create a New Post  <!-- Default title if not overridden -->
+        {% endblock %}
+    </h1>
 
-<form method="post">
-    <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" name="title"
-               placeholder="Post title" class="form-control"
-               value="{{ request.form['title'] }}"></input>
-    </div>
+    <!-- Form for creating a new post using the HTTP POST method -->
+    <form method="post">
+        <!-- Form input for the post title -->
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" name="title"
+                   placeholder="Post title" class="form-control"
+                   value="{{ request.form['title'] }}">
+        </div>
 
-    <div class="form-group">
-        <label for="content">Content</label>
-        <textarea name="content" placeholder="Post content"
-                  class="form-control">{{ request.form['content'] }}</textarea>
-    </div>
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-</form>
+        <!-- Form textarea for the post content -->
+        <div class="form-group">
+            <label for="content">Content</label>
+            <textarea name="content" placeholder="Post content"
+                      class="form-control">{{ request.form['content'] }}</textarea>
+        </div>
+
+        <!-- Form submission button -->
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+    <!-- Block content ends here -->
 {% endblock %}

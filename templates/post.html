@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>{% block title %} {{ post['title'] }} {% endblock %}</h2>
+    <!-- Block content starts here -->
+    <h2>
+        {% block title %}
+            {{ post['title'] }}  <!-- Display the title of the post -->
+        {% endblock %}
+    </h2>
+    
+    <!-- Display a badge with a primary color for post creation date -->
     <span class="badge badge-primary">{{ post['created'] }}</span>
+    
+    <!-- Display the content of the post -->
     <p>{{ post['content'] }}</p>
+    <!-- Block content ends here -->
 {% endblock %}

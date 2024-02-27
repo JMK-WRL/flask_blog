@@ -1,9 +1,13 @@
+<!-- Horizontal line as a visual separator -->
 <hr>
 
+<!-- Form for deleting a post -->
 <form action="{{ url_for('delete', id=post['id']) }}" method="POST">
+    <!-- Submit button to trigger the post deletion -->
     <input type="submit" value="Delete Post"
             class="btn btn-danger btn-sm"
             onclick="return confirm('Are you sure you want to delete this post?')">
+    <!-- Confirm dialog on click to ask for user confirmation -->
 </form>
 
 {% endblock %}
